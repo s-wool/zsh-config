@@ -29,7 +29,19 @@ SPROMPT="%{[37m%}%r is correct? [n,y,a,e]:%{[m%} "
     PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
 RPROMPT="%{[37m%}[%~]%{[m%}"
 
+#ブランチ名表示
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' formats '[%b]'
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+precmd () {
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+RPROMPT="%1(v|%F{green}%1v%f|)"$RPROMPT
 
+# プロンプトが表示されるたびにプロンプト文字列を評価、置換する
+setopt prompt_subst
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
