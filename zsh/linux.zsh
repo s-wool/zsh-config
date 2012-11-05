@@ -5,7 +5,7 @@ case "${OSTYPE}" in
 
     #alias
     alias ls='ls --color'
-    alias ls='ls lah --color'
+    alias l='ls -lah --color'
     ;;
   *)
 esac
