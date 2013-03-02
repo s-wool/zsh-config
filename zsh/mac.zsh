@@ -2,11 +2,12 @@ case "${OSTYPE}" in
   darwin*)
     #color
     export LSCOLORS=gxfxcxdxbxegedabagacad
+    export TERM='xterm-256color'
 
     #alias
     alias ls='ls -G'
     alias l='ls -lahG'
-    alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+    alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
 
     #python
     [[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
