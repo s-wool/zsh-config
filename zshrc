@@ -60,9 +60,10 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 ZSHHOME="${HOME}/.zsh"
 
-if [ -d $ZSHHOME -a -r $ZSHHOME -a -x $ZSHHOME ]; then
-    for i in $ZSHHOME/*;
-    do
-        source $i
-    done
+if [ -f $ZSHHOME/os.zsh ]; then
+  source $ZSHHOME/os.zsh
+fi
+
+if [ -f $ZSHHOME/local.zsh ]; then
+  source $ZSHHOME/local.zsh
 fi
