@@ -67,3 +67,21 @@ fi
 if [ -f $ZSHHOME/local.zsh ]; then
   source $ZSHHOME/local.zsh
 fi
+
+case "${TERM}" in
+# for emacs tramp setting
+dumb | emacs)
+  PROMPT="%n@%~%(!.#.$)"
+  RPROMPT=""
+  PS1='%(?..[%?])%!:%~%# '
+# for tramp to not hang, need the following. cf:
+# http://www.emacswiki.org/emacs/TrampMode
+  unsetopt zle
+  unsetopt prompt_cr
+  unsetopt prompt_subst
+  unfunction precmd
+  #unfunction preexec
+  ;;
+esac
+
+setopt transient_rprompt
