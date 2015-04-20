@@ -58,16 +58,6 @@ setopt auto_pushd
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-ZSHHOME="${HOME}/.zsh"
-
-if [ -f $ZSHHOME/os.zsh ]; then
-  source $ZSHHOME/os.zsh
-fi
-
-if [ -f $ZSHHOME/local.zsh ]; then
-  source $ZSHHOME/local.zsh
-fi
-
 case "${TERM}" in
 # for emacs tramp setting
 dumb | emacs)
@@ -85,3 +75,13 @@ dumb | emacs)
 esac
 
 setopt transient_rprompt
+
+ZSHHOME="${HOME}/.zsh"
+
+if [ -f $ZSHHOME/os.zsh ]; then
+  source $ZSHHOME/os.zsh
+fi
+
+if [ -f $ZSHHOME/local.zsh ]; then
+  source $ZSHHOME/local.zsh
+fi
