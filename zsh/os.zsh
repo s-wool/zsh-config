@@ -26,6 +26,7 @@ case "${OSTYPE}" in
     #path
     PATH=/opt/local/bin:$PATH
     MANPATH=/opt/local/share/man:$MANPATH
+    PATH=~/.cask/bin:$PATH
     ;;
   *)
 esac
